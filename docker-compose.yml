@@ -1,0 +1,22 @@
+services:
+  tomcat:
+    container_name: tomcat
+    image: 'tomcat:latest'
+    volumes:
+      - './webapps:/usr/local/tomcat/webapps'
+      - './tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml'
+
+    build: .
+    restart: 'always'
+    expose:
+      - '8088'
+    ports:
+      - '8088:8080'
+    networks:
+      - backend
+
+networks:
+  backend:
+    name: api-net
+
+
