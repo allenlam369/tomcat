@@ -1,0 +1,10 @@
+#! /bin/bash
+
+#docker-compose up -d
+
+docker build -t allenlam/tomcat .
+docker run --rm --name tomcat -d -it -p 8088:8080 allenlam/tomcat
+
+
+
+
